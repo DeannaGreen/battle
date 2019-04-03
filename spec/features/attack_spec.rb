@@ -11,4 +11,12 @@ feature 'Attacking' do
     expect(page).not_to have_content 'Madison: 60HP'
     expect(page).to have_content 'Madison: 50HP'
   end
+
+  scenario 'attack player 1' do
+    sign_in_and_play
+    click_button 'Attack'
+    click_button 'Attack'
+    expect(page).not_to have_content 'Deanna: 60HP'
+    expect(page).to have_content 'Deanna: 50HP'
+  end
 end

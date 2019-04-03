@@ -1,5 +1,23 @@
-<%= @game.player_1.name %> attacked <%= @game.player_2.name %>
+<div>
+  <% if @game.current_turn == @game.player_1 %>
+  <%= @game.player_1.name %> attacked <%= @game.player_2.name %>
+  <% else %>
+  <%= @game.player_2.name %> attacked <%= @game.player_1.name %>
+  <% end %>
+</div>
 
-<%= @game.current_turn.name %>'s turn
+<div>
+  <%= @game.current_turn.name %>'s turn
+</div>
 
-<%= @game.player_2.name %>: <%= @game.player_2.hit_points %>HP
+<div>
+  <%= @game.player_1.name %>: <%= @game.player_1.hit_points %>HP
+</div>
+
+<div>
+  <%= @game.player_2.name %>: <%= @game.player_2.hit_points %>HP
+</div>
+
+<form action="/attack">
+  <input type="submit" value="Attack">
+</form>
